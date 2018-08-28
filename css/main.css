@@ -66,6 +66,9 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-align: center;
   text-transform: uppercase;
 }
+#footer a {
+  color: #a7382d;
+}
 /* ====================== Navigation ====================== */
 nav {
   width: 100%;
@@ -210,7 +213,15 @@ nav h1 a {
 }
 #restaurants-list li a:hover { 
   background-color: #d84a3c;
+}
 
+#restaurants-list li .details { 
+  background-color: #a7382d;
+  padding:15px 15px 15px 15px;
+  color: #fff;
+}
+#restaurants-list li .details:hover { 
+  background-color: #d84a3c;
 }
 
 .inside {
@@ -316,7 +327,7 @@ nav h1 a {
 }
 
 #reviews-container {
-  padding: 30px 30px 30px 30px;
+  padding: 30px;
   margin: auto;
   width: 100%;
   height: auto;  
@@ -359,17 +370,23 @@ nav h1 a {
   margin-left: auto;
   margin-right: auto;
   border: 2px solid #ccc;  
-}
+  display: flex;
+  flex-wrap: column;
+  flex-wrap: wrap;
+  flex-flow: column;
+  }
 
 #restaurant-hours td {
-  background-color: #fff;
   padding: 6px 6px;
   font-size: 12pt;
   font-weight: bold;
 }
 
+/*================Aria===============*/
 .labels-for-aria {
+  display: none;
 }
+
 /*=================Responsiveness ================================*/
 
 
@@ -391,7 +408,7 @@ nav h1 a {
     width:100%;
   }
   #reviews-container {
-    width: 80%;
+    width: 70%;
   }
 }
 
@@ -399,7 +416,9 @@ nav h1 a {
   #restaurants-list {
     grid-template-columns: 1fr  ;
     max-width: 90%
+    padding-left:15px;
   }
+
   #restaurants-list .restaurant-img {
       height:auto%;
       width:90%;
@@ -411,10 +430,4 @@ nav h1 a {
     width: 80%;
   }
 }
-/*@media screen and (max-width:359px)  {
-#restaurants-list {
-  grid-template-columns: 1fr  ;
-  max-width:90%;
-  }
-}*/
 
