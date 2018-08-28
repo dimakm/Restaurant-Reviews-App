@@ -156,17 +156,26 @@ createRestaurantHTML = (restaurant) => {
   li.append(name);
 
   const neighborhood = document.createElement('p');
+  neighborhood.classList.add("neighborhoods"); // added class name
   neighborhood.innerHTML = restaurant.neighborhood;
   li.append(neighborhood);
 
   const address = document.createElement('p');
+  address.classList.add("address"); // added class name
   address.innerHTML = restaurant.address;
   li.append(address);
 
-  const more = document.createElement('a');
+  /*Converting the a link to a button "inspired by Doug Brown video :
+  https://www.youtube.com/watch?v=92dtrNU1GQc  "*/
+  const more = document.createElement('button');
+  more.classList.add("details"); // added class name
   more.innerHTML = 'View Details';
-  more.href = DBHelper.urlForRestaurant(restaurant);
-  more.setAttribute('aria-label', `view the details for ${restaurant.name}`); // Aria for the link to restaurant page
+  more.onClick = function() {
+  const url = DBHelper.urlForRestaurant(restaurant);
+  window.location = url ;
+  }
+  // Add Aria for the button to restaurant page
+  more.setAttribute('aria-label', ` click to view details for ${restaurant.name} At ${restaurant.neighborhood} `); 
   li.append(more)
 
   return li
