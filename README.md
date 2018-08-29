@@ -1,5 +1,6 @@
 # Restaurant-Reviews-App
-GWG scholarship project 5
+GWG scholarship Front End Web Developer Nanodegree , project 5
+By Dima Kroma
 
 ## Overview:
 
