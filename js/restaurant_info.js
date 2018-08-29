@@ -82,17 +82,24 @@ fetchRestaurantFromURL = (callback) => {
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
-
+  var aria_name = document.getElementById('name'); //Aria for restaurant name
+  aria_name.innerHTML = "Restaurant name: " + restaurant.name;
+/*---------------------------------------------------------------*/
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
-
+  var aria_address = document.getElementById('address'); //Aria for restaurant address
+  aria_address.innerHTML = "Restaurant address: " + restaurant.address;
+/*----------------------------------------------------------------*/
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-
+  image.alt =  "A photo of " + restaurant.name + " restaurant"; //Added image alt
+/*---------------------------------------------------------------*/
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
-
+  var aria_cuisine = document.getElementById('cuisine'); //Aria for restaurant cuisine
+  aria_cuisine.innerHTML = "Cuisine Type: " + restaurant.cuisine_type;
+  /*-------------------------------------------------------------*/
   // fill operating hours
   if (restaurant.operating_hours) {
     fillRestaurantHoursHTML();
@@ -107,16 +114,22 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
   const hours = document.getElementById('restaurant-hours');
   for (let key in operatingHours) {
-    const row = document.createElement('tr');
 
+   
+
+    const row = document.createElement('tr');
     const day = document.createElement('td');
+    //adding tabindex=0 for each of the operating hours rows so the screen reader can recognize them individually and read the content
+    var aria_tab = document.createAttribute("tabindex");       
+    aria_tab.value = 0;
+    row.setAttributeNode(aria_tab);
+
     day.innerHTML = key;
     row.appendChild(day);
-
     const time = document.createElement('td');
     time.innerHTML = operatingHours[key];
-    row.appendChild(time);
 
+    row.appendChild(time);
     hours.appendChild(row);
   }
 }
@@ -148,6 +161,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+  li.setAttribute('tabindex' , "0") ;//adding tabindex to the review li
   const name = document.createElement('p');
   name.innerHTML = review.name;
   li.appendChild(name);
@@ -173,6 +187,10 @@ createReviewHTML = (review) => {
 fillBreadcrumb = (restaurant=self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
+  //adding tabindex=0 to the restaurant name in breadcrumbs otherwise the screen reader won't stop and read it  .
+  var breadcrumb_tabindex = document.createAttribute("tabindex");       
+  breadcrumb_tabindex.value = 0;
+  li.setAttributeNode(breadcrumb_tabindex);
   li.innerHTML = restaurant.name;
   breadcrumb.appendChild(li);
 }
