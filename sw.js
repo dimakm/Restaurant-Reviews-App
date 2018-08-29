@@ -19,6 +19,16 @@ const filesToBeCached = [
        '/img/',
       '/index.html',
       '/restaurant.html',
+      '/img/small/1.jpg',
+      '/img/small/2.jpg',
+      '/img/small/3.jpg',
+      '/img/small/4.jpg',
+      '/img/small/5.jpg',
+      '/img/small/6.jpg',
+      '/img/small/7.jpg',
+      '/img/small/8.jpg',
+      '/img/small/9.jpg',
+      '/img/small/10.jpg',
      ];
 
 /*When the user hits the page an install event is triggered to cache the files.*/
