@@ -148,7 +148,8 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForMainPage(restaurant);//changed from urlForRestaurant to imageUrlForMainPage to take the smaller images for the home page
+  //changed from urlForRestaurant to imageUrlForMainPage to take the smaller images for the home page
+  image.src = DBHelper.imageUrlForMainPage(restaurant);
   li.append(image);
 
   const name = document.createElement('h1');
@@ -165,17 +166,15 @@ createRestaurantHTML = (restaurant) => {
   address.innerHTML = restaurant.address;
   li.append(address);
 
-  /*Converting the a link to a button "inspired by Doug Brown video :
-  https://www.youtube.com/watch?v=92dtrNU1GQc  "*/
+  //Converting the a link to a button 
   const more = document.createElement('button');
   more.classList.add("details"); // added class name
   more.innerHTML = 'View Details';
-  more.onClick = function() {
-  const url = DBHelper.urlForRestaurant(restaurant);
-  window.location = url ;
-  }
+  more.addEventListener("click", function() {
+  window.location = DBHelper.urlForRestaurant(restaurant); 
+  });
   // Add Aria for the button to restaurant page
-  more.setAttribute('aria-label', ` click to view details for ${restaurant.name} At ${restaurant.neighborhood} `); 
+  more.setAttribute('aria-label', ` click for details ${restaurant.name} At ${restaurant.neighborhood} `); 
   li.append(more)
 
   return li
