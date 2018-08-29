@@ -219,6 +219,7 @@ nav h1 a {
   background-color: #a7382d;
   padding:15px 15px 15px 15px;
   color: #fff;
+  cursor: pointer;
 }
 #restaurants-list li .details:hover { 
   background-color: #d84a3c;
