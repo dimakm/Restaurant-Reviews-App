@@ -29,7 +29,7 @@ On the side menu click Service Worker, you'll see an option to work offline, che
 
 
 ## Dependencies
-[Udacity Project Repository] (https://github.com/udacity/mws-restaurant-stage-1)
+[Udacity Project Repository](https://github.com/udacity/mws-restaurant-stage-1)
 
 [Map Box] (https://www.mapbox.com/install/js/bundler-complete/)  for the maps.
 
