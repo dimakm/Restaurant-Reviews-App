@@ -22,6 +22,12 @@ $ git cd c:/projectFolder
 
 - To try the screen reader install screen reader extension, navigate to install [ChromeVox for chrome]  (https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn) .
 
+- Use developer tool bar to check how the app works on different devices.
+
+- Check the app offline, rightclick on your browser, choose Inspect from the menu, go to Application tab. 
+On the side menu click Service Worker, you'll see an option to work offline, check it and try the app offline.
+
+
 ## Dependencies
 [Udacity Project Repository] (https://github.com/udacity/mws-restaurant-stage-1)
 
