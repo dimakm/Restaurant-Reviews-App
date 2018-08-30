@@ -150,6 +150,7 @@ createRestaurantHTML = (restaurant) => {
   image.className = 'restaurant-img';
   //changed from urlForRestaurant to imageUrlForMainPage to take the smaller images for the home page
   image.src = DBHelper.imageUrlForMainPage(restaurant);
+  image.alt =   restaurant.name + " restaurant"; //Added image alt
   li.append(image);
 
   const name = document.createElement('h1');
